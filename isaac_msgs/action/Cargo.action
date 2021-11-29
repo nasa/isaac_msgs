@@ -1,0 +1,62 @@
+# Copyright (c) 2021, United States Government, as represented by the
+# Administrator of the National Aeronautics and Space Administration.
+#
+# All rights reserved.
+#
+# The "ISAAC - Integrated System for Autonomous and Adaptive Caretaking
+# platform" software is licensed under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with the
+# License. You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# Cargo action for the Cargo behavior
+
+# What type of cargo interacyion to perform
+uint8 command
+uint8 PAUSE      = 0
+uint8 PICK       = 1
+uint8 DROP       = 2
+uint8 RESUME     = 3
+
+# Transform of cargo
+int32 bay
+int32 BAY_A                          = 1
+int32 BAY_B                          = 2
+
+string cargo_id
+
+# When we are placing a cargo, this is the berth pose
+# When we are picking up the cargo, this is the cargo pose
+geometry_msgs/PoseStamped pose
+
+---
+
+# Cargo Result
+int32 response
+int32 CANCELLED                          = -2
+int32 PREEMPTED                          = 0
+int32 SUCCESS                            = 1
+int32 PAUSED                             = 2
+int32 INVALID_COMMAND                    = -1
+int32 MOTION_FAILED                      = -10
+int32 ARM_FAILED                         = -11
+int32 DETECT_FAILED                      = -12
+int32 BERTH_FULL                         = -13
+
+# Final bag pose
+geometry_msgs/PoseStamped final_cargo_pose
+
+# Human readable result for debugging
+string fsm_result
+
+---
+
+# Feedback
+isaac_msgs/CargoState state
