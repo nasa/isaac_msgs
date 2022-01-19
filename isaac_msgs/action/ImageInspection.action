@@ -27,15 +27,14 @@ uint8 VENT     = 1
 string img_topic
 
 ---
+isaac_msgs/AnomalyResult anomaly_result
 
 # Result
 int32 response
 int32 CANCELLED                          = -2
 int32 FAILED                             = -1
 int32 PREEMPTED                          = 0
-int32 VENT_FREE                          = 1
-int32 VENT_OBSTRUCTED                    = 2
-int32 INCONCLUSIVE                       = -9
+int32 SUCCESS                            = 1
 int32 INVALID_COMMAND                    = -10
 
 # Human readable result for debugging

@@ -28,28 +28,28 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 # Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  WifiSignal.msg
-  WifiSignals.msg
-  RFIDTag.msg
-  RFIDTags.msg
-  AirQuality.msg
-)
+file(GLOB MSG_FILES msg/*.msg)
+foreach(SRC ${MSG_FILES})
+  get_filename_component(NAME ${SRC} NAME)
+  list(APPEND MSG_FILE_NAMES ${NAME})
+endforeach()
+add_message_files(FILES ${MSG_FILE_NAMES})
 
-## Generate services in the 'srv' folder
-#add_service_files(
-#  FILES
-##   Service1.srv
-##   Service2.srv
-#)
+# # Generate services in the 'srv' folder
+# file(GLOB SRV_FILES srv/*.srv)
+# foreach(SRC ${SRV_FILES})
+#   get_filename_component(NAME ${SRC} NAME)
+#   list(APPEND SRV_FILE_NAMES ${NAME})
+# endforeach()
+# add_service_files(FILES ${SRV_FILE_NAMES})
 
-# Generate actions in the 'action' folder
-#add_action_files(
-#  FILES
-##   Action1.action
-##   Action2.action
-#)
+# # Generate actions in the 'action' folder
+# file(GLOB ACTION_FILES action/*.action)
+# foreach(SRC ${ACTION_FILES})
+#   get_filename_component(NAME ${SRC} NAME)
+#   list(APPEND ACTION_FILE_NAMES ${NAME})
+# endforeach()
+# add_action_files(FILES ${ACTION_FILE_NAMES})
 
 generate_messages(
   DEPENDENCIES std_msgs geometry_msgs actionlib_msgs trajectory_msgs sensor_msgs std_msgs

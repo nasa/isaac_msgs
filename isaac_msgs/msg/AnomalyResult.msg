@@ -16,31 +16,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 #
-# Image analysis action for the Vent Image analyser
+# Locked topic that registers updates to the internal dock state
 
-# What type of inspection to perform
-uint8 type
-uint8 WIFI     = 1
+# Header with timestamp
+std_msgs/Header header
 
-# Transform of which vent to inspect
-string img_topic
-
----
-
-# Result
-int32 response
-int32 CANCELLED                          = -2
-int32 FAILED                             = -1
-int32 PREEMPTED                          = 0
-int32 SUCCESS                            = 1
-
-# Human readable result for debugging
-string result
-
----
-
-# Feedback
-int32 state
-int32 WAITING                           = 0
-int32 COLLECTING_DATA                   = 1
-int32 PUBLISHING_MAP                    = 2
+# The state of the mobility subsystem
+string classifier_result
+string[] classifier_options

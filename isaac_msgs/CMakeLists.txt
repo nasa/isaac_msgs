@@ -28,30 +28,30 @@ find_package(catkin COMPONENTS
   sensor_msgs
 )
 
-# Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  InspectionState.msg
-  CargoState.msg
-#  Message2.msg
-)
 
-## Generate services in the 'srv' folder
-add_service_files(
-  FILES
-  SendLogisticsGoal.srv
-  SetCargoAnomaly.srv
-)
+# Generate messages in the 'msg' folder
+file(GLOB MSG_FILES msg/*.msg)
+foreach(SRC ${MSG_FILES})
+  get_filename_component(NAME ${SRC} NAME)
+  list(APPEND MSG_FILE_NAMES ${NAME})
+endforeach()
+add_message_files(FILES ${MSG_FILE_NAMES})
+
+# Generate services in the 'srv' folder
+file(GLOB SRV_FILES srv/*.srv)
+foreach(SRC ${SRV_FILES})
+  get_filename_component(NAME ${SRC} NAME)
+  list(APPEND SRV_FILE_NAMES ${NAME})
+endforeach()
+add_service_files(FILES ${SRV_FILE_NAMES})
 
 # Generate actions in the 'action' folder
-add_action_files(
-  FILES
-  Inspection.action
-  ImageInspection.action
-  VolumeInspection.action
-  Cargo.action
-  Detection.action
-)
+file(GLOB ACTION_FILES action/*.action)
+foreach(SRC ${ACTION_FILES})
+  get_filename_component(NAME ${SRC} NAME)
+  list(APPEND ACTION_FILE_NAMES ${NAME})
+endforeach()
+add_action_files(FILES ${ACTION_FILE_NAMES})
 
 generate_messages(
   DEPENDENCIES std_msgs geometry_msgs actionlib_msgs trajectory_msgs sensor_msgs std_msgs

@@ -34,17 +34,15 @@ uint8 SAVE       = 8
 geometry_msgs/PoseArray inspect_poses
 
 ---
+time[] picture_time
+
+isaac_msgs/AnomalyResult[] anomaly_result
 
 # Result per Inspection pose
-int8[] vent_result
-int8[] geometry_result
+int8[] inspection_result
 int32 FAILED                             = -1
-int32 VENT_FREE                          = 1
-int32 VENT_OBSTRUCTED                    = 2
 int32 PIC_ACQUIRED                       = 3
-int32 INCONCLUSIVE                       = -9
 
-time[] picture_time
 
 # General Inspection Result
 int32 response
