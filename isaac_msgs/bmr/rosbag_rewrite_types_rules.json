@@ -7,15 +7,27 @@
             "new_type_md5sum": "d36308676d466059465a3cf2963a88fe"
         },
         {
+            "old_type": "isaac_msgs/InspectionActionGoal",
+            "old_type_md5sum": "c8ebda72eaad511a089a7065cf1bf9e3",
+            "new_type": "isaac_msgs/InspectionV2ActionGoal",
+            "new_type_md5sum": "c8ebda72eaad511a089a7065cf1bf9e3"
+        },
+        {
             "old_type": "isaac_msgs/InspectionActionResult",
             "old_type_md5sum": "89865434ba50475f32f54cd1316ada77",
             "new_type": "isaac_msgs/InspectionV1ActionResult",
             "new_type_md5sum": "89865434ba50475f32f54cd1316ada77"
         },
         {
+            "old_type": "isaac_msgs/InspectionActionResult",
+            "old_type_md5sum": "00e4ce033ae3a108d3beeef3de11f1cf",
+            "new_type": "isaac_msgs/InspectionV2ActionResult",
+            "new_type_md5sum": "00e4ce033ae3a108d3beeef3de11f1cf"
+        },
+        {
             "old_type": "isaac_msgs/InspectionActionFeedback",
             "old_type_md5sum": "48cd68c5d5eba5c27a70f4183a248b22",
-            "new_type": "isaac_msgs/InspectionV1ActionFeedback",
+            "new_type": "isaac_msgs/InspectionV2ActionFeedback",
             "new_type_md5sum": "48cd68c5d5eba5c27a70f4183a248b22"
         }
     ]
