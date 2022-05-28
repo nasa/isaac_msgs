@@ -9,7 +9,7 @@ Unless you are modifying the messages, you may not need to clone this repo direc
 Message definition files that have a version number (e.g., `V1`) at the
 end of their filename are "frozen" message types, as discussed in the
 [telemetry backward compatibility
-guide](https://nasa.github.io/astrobee/html/md_doc_general_documentation_maintaining_telemetry.html).
+guide](https://nasa.github.io/astrobee/html/maintaining_telemetry.html).
 These messages are no longer published by the latest software, but we
 keep them for backward compatibility with archived ISS telemetry bags.
 
