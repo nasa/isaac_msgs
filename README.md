@@ -4,6 +4,29 @@ This repo contains ROS message definitions used by ISAAC for communication over 
 
 Unless you are modifying the messages, you may not need to clone this repo directly and will probably consume this as a git submodule of another repo like the `isaac` repo.
 
+## Backward compatibility
+
+Message definition files that have a version number (e.g., `V1`) at the
+end of their filename are "frozen" message types, as discussed in the
+[telemetry backward compatibility
+guide](https://nasa.github.io/astrobee/html/maintaining_telemetry.html).
+These messages are no longer published by the latest software, but we
+keep them for backward compatibility with archived ISS telemetry bags.
+
+Examples include (definition: ISS activity relevance):
+
+- `isaac_msgs/action/InspectionV1.action`: ISAAC1-2
+
+- `isaac_msgs/action/InspectionV2.action`: ISAAC3
+
+  - Note that the `actionlib` derived message types
+    `InspectionV1ActionFeedback` and `InspectionV2ActionFeedback` happen
+    to be identical, and we arbitrarily chose to rename
+    `InspectionActionFeedback` to `InspectionV2ActionFeedback` for all
+    activities ISAAC1-3.
+
+- `isaac_msgs/msg/InspectionStateV1.msg`: ISAAC1-3
+
 ### Contributing
 
 The ISAAC Software is open source, and we welcome contributions from the public.

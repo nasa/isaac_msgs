@@ -67,3 +67,8 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest(test/test_fix_all_isaac.test)
+endif()
